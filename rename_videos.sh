@@ -48,9 +48,11 @@ do
         echo "Extracting dates from JSON..."
         create_dates_file_in_folder
         sort -o dates.txt dates.txt
-        echo "Renaming files"
+        echo "Renaming files..."
         rename_files_in_folder
+        echo "Done."
         rm dates.txt
-        cd -
+        cd - > /dev/null
+        echo ""
     fi
 done
