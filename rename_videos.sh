@@ -5,7 +5,8 @@ create_dates_file_in_folder () {
     do
         if [[ "$file" == *.info.json ]]
         then
-            cat "$file" | jq '"\(.upload_date) \(.display_id)"' >> dates.txt
+            upload_date=$(jq '.upload_date' "$file")
+            echo "$upload_date $file" >> dates.txt
         fi
     done
 }
@@ -21,7 +22,9 @@ rename_files_in_folder () {
             episode_index=1
         fi
 
-        find . -type f -name "*${file:10:11}.*" | while read line; do
+        json_filename=${file:11}
+        filename_without_ext=${json_filename%.info.json}
+        find . -type f -name "*$filename_without_ext.*" | while read line; do
             if [[ "$line" =~ ^.*S[0-9]+E[0-9]+.*$ ]]
             then
                 mv "$line" "$(printf 'S%02dE%03d - %s\n' $year_index $episode_index "${line:12}")" 2>/dev/null
