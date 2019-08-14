@@ -5,6 +5,8 @@ It parses the metadata file (`video_name.info.json`) to rename the video as `Sxx
 - _xx_ the year index (01 for the year this first channel's video was uploaded)
 - _yy_ the video index (01 for the first video uploaded this year on the channel)
 
+Each season is thus composed of all the videos released each year.
+
 ## Installation
 
 - Clone the repo
