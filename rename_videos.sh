@@ -25,7 +25,7 @@ rename_files_in_folder () {
         json_filename=${file:11}
         filename_without_ext=${json_filename%.info.json}
         find . -type f -name "*$filename_without_ext.*" -print0 | while read -d $'\0' line; do
-            if [[ "$line" =~ ^.*S[0-9]+E[0-9]+\ -\ .*$ ]]
+            if [[ "$line" =~ ^.*S[0-9]{2}E[0-9]{3}\ -\ .*$ ]]
             then
                 mv "$line" "$(printf 'S%02dE%03d - %s\n' $year_index $episode_index "${line:12}")" 2>/dev/null
             else
