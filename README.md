@@ -1,4 +1,4 @@
-# Project Name
+# rename-youtube-dl-videos.sh
 
 Script used to organize your video library downloaded with [youtube-dl](https://github.com/ytdl-org/youtube-dl/) and make it parseable by media centers.  
 It parses the metadata file (`video_name.info.json`) to rename the video as `SxxEyy - video_name`:
