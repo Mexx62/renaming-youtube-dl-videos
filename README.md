@@ -5,7 +5,12 @@ It parses the metadata file (`video_name.info.json`) to rename the video as `Sxx
 - _xx_ the year index (01 for the year this first channel's video was uploaded)
 - _yy_ the video index (01 for the first video uploaded this year on the channel)
 
-Each season is thus composed of all the videos released each year.
+Each season is thus composed of all the videos released per year.
+
+## Prerequisites
+
+- _jq_
+- _bash_ v4.0 minimum
 
 ## Installation
 
@@ -16,7 +21,7 @@ Each season is thus composed of all the videos released each year.
 ## Usage
 
 When downloading videos with [youtube-dl](https://github.com/ytdl-org/youtube-dl/), the flag `write-info-json` is **necessary**.  
-The script `rename_videos.sh` then has to be executed in the video library folder. It will check each subdirectories for `*.info.json` files. When it finds some, it will extract all uploading dates and rename the files given this information.
+The script `rename_videos.sh` then has to be executed in the video library folder. It will check each subdirectories for `*.info.json` files. When it finds some, it will extract all uploading dates with _jq_ and rename the files given this information.
 
 ## Contributing
 
